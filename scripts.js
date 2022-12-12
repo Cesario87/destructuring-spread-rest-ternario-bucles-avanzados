@@ -48,9 +48,41 @@ console.log(maximaManana);
 
 //2. Ejercicios spread/rest
 //2.1 Escribe una función llamada sumEveryOther que pueda recibir cualquier cantidad de números y devuelva la suma de todos los demás argumentos.
-const sumEveryOther() = {
+function sumEveryOther(...num) {
+    let total = 0;
+  
+    for (let i = 0; i < num.length; i++) {
+      total += num[i];
+    }
 
-}
+    return total;
+  }
 
 sumEveryOther(6, 8, 2, 3, 1); //20
 sumEveryOther(11, 3, 12); //26
+
+//2.2 Escribe una función llamada addOnlyNums que pueda recibir cualquier número de argumentos (incluyendo números y strings y retorne la suma solo de los números.
+   //addOnlyNums(1, "perro", 2, 4); //7
+
+   function addOnlyNums(...params) {
+    let total = 0;
+  
+    for (let i = 0; i < params.length; i++) {
+        if (typeof params[i] === 'number'){
+        total += params[i];
+        }
+    }
+
+    return total;
+  }
+
+  addOnlyNums(1, "perro", 2, 4);
+
+/*2.3 Escribe una función llamada countTheArgs que pueda recibir cualquier número de argumentos y devuelva un número que indique cuántos argumentos ha recibido.
+countTheArgs("gato", "perro"); //2
+countTheArgs("gato", "perro", "pollo", "oso"); //4
+*/
+
+function countTheArgs(...args){
+  return args.length;
+}
