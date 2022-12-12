@@ -86,3 +86,73 @@ countTheArgs("gato", "perro", "pollo", "oso"); //4
 function countTheArgs(...args){
   return args.length;
 }
+
+//2.4 Escribe una función llamada combineTwoArrays que reciba dos array cómo argumentos y devuelva solo un array que combine los dos (usando spread operator).
+
+let misConocimientos = [
+  "variables",
+  "operadores",
+  "estructuras de control",
+  "funciones",
+];
+let aprendido = ["rest operator", "spread operator"];
+let misConocimientosAmpliados = [
+  ...misConocimientos,
+  ...aprendido,
+  "otra cosa más",
+];
+
+function combineTwoArrays(arr1, arr2){
+  let combinedArr = [
+    ...arr1,
+    ...arr2,
+  ]
+  return combinedArr;
+}
+
+combineTwoArrays (misConocimientos, aprendido);
+
+/*2.5 Escriba una función llamada onlyUniques que acepte cualquier número de argumentos y devuelva un array de elementos únicos, sin repetidos.
+
+onlyUniques("gato", "pollo", "cerdo", "cerdo"); //['gato', 'pollo', 'cerdo']
+onlyUniques(1, 1, 2, 2, 3, 6, 7, 8); //[1, 2, 3, 6, 7, 8]*/
+
+function onlyUniques (...params) {
+  let uniques = [];
+  params.forEach((element) => {
+    if (!uniques.includes(element)) {
+        uniques.push(element);
+    }
+  });
+  return uniques
+};
+
+onlyUniques(1, 1, 2, 2, 3, 6, 7, 8);
+
+/*2.6 Escriba una función llamada combineAllArrays que pueda recibir cualquier cantidad de arrays como argumentos y los combine todos en un solo array.
+combineAllArrays([3, 6, 7, 8], [2, 7, 3, 1]);*/
+
+function combineAllArrays(...arr){
+  let combinedArr = []
+    for (let i = 0; i < arr.length; i++)
+    combinedArr.push(...arr[i])
+  return combinedArr;
+}
+
+combineAllArrays([3, 6, 7, 8], [2, 7, 3, 1], [2, 7, 3, 1], [2, 7, 3, 1], [2, 7, 3, 1]);
+
+/*2.7 Escriba una función llamada sumAndSquare que reciba cualquier número de argumentos, los eleve al cuadrado y devuelva la suma de todos los valores cuadrados.*/
+function sumAndSquare(...params){
+  params.map(element => element**2)
+  function sumEveryOther(...params) {
+    let total = 0;
+    for (let i = 0; i < params.length; i++) {
+      total += params[i];
+    }
+    return total;
+  }
+}
+
+sumAndSquare(3, 6, 7, 8);
+
+
